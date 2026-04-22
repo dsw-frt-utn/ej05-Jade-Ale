@@ -21,6 +21,16 @@ public class VehiculoElectrico : Vehiculo
 
     public override double CalcularConsumo(double kilometros)
     {
-        return kilometros * kwhBase;
+        // C# usa camelCase para variables locales, igual que Java
+        double total = (kilometros / 100) * kwhBase;
+
+        // Si la capacidad es mayor a 1200, aumentamos un 15%
+        if (capacidadCarga > 1200)
+        {
+            total = total * 1.15;
+        }
+
+        return total;
     }
+
 }
